@@ -5,8 +5,16 @@ tasks:
       PWD:
         sh: pwd
     cmds:
-      - protoc -I protobuf --proto_path=protobuf --python_out=. protobuf/*.proto
-      - protoc -I protobuf --proto_path=protobuf --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative protobuf/*.proto
-
+      - >
+        poetry run python -m grpc_tools.protoc -I protobuf --proto_path=protobuf protobuf/*.proto
+        --python_out=.
+        --grpc_python_out=.
+      - poetry run stubgen --inspect-mode --output . --include-docstring ./*.py
+      - >
+        protoc -I protobuf --proto_path=protobuf protobuf/*.proto
+        --go_out=.
+        --go_opt=paths=source_relative
+        --go-grpc_out=.
+        --go-grpc_opt=paths=source_relative
   internal_service:
     internal: true
