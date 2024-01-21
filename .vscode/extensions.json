@@ -4,6 +4,7 @@
         "ms-python.python",
         "zxh404.vscode-proto3",
         "xaver.clang-format",
-        "ms-vscode.makefile-tools"
+        "ms-vscode.makefile-tools",
+        "visualstudiotoolsforunity.vstuc"
     ]
 }
