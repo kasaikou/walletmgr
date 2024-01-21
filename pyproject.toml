@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "walletmgr"
+version = "0.1.0"
+description = ""
+authors = ["Kasai Kou <80010105+kasaikou@users.noreply.github.com>"]
+license = "GPLv3"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+grpcio = "^1.60.0"
+
+[tool.poetry.dev-dependencies]
+grpcio-tools = "^1.60.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.8.0"
+grpc-stubs = "^1.53.0.5"
+types-protobuf = "^4.24.0.20240106"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
