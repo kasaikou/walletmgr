@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpc;
+
+import "models.proto";
+
+option go_package = "github.com/kasaikou/walletmgr/conn/grpc";
+
+service InternalAppService {
+    rpc ListTransactions(ListTransactionsRequest) returns (stream ListTransactionsStreamResponse);
+}
+
+message ListTransactionsRequest {
+}
+
+message ListTransactionsStreamResponse {
+    grpc.Transaction transaction = 1;
+}
