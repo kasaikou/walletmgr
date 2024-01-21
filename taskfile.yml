@@ -1,0 +1,28 @@
+version: "3"
+includes:
+  protobuf:
+    taskfile: ./protobuf
+    dir: ./protobuf
+  # go:
+  #   taskfile: ./go
+  #   dir: ./go
+  # python:
+  #   taskfile: ./python
+  #   dir: ./python
+tasks:
+  default:
+    deps: [build-app-backend]
+  build-app-backend:
+    deps: [fix-code]
+    cmds:
+      - go build -o ./dist/walletmgr-app-backend ./go/cmd/walletmgr-app-backend
+  fix-code:
+    deps: [go-mod-download, poetry-install]
+    cmds:
+      - task: protobuf
+  go-mod-download:
+    cmds:
+      - go mod download
+  poetry-install:
+    cmds:
+      - poetry install
