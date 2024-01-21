@@ -14,14 +14,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cmodels.proto\x12\x04grpc\"\x14\n\x04UUID\x12\x0c\n\x04uuid\x18\x01 \x01(\x0c\"%\n\x0bTransaction\x12\x16\n\x02id\x18\x01 \x01(\x0b\x32\n.grpc.UUIDB)Z\'github.com/kasaikou/walletmgr/conn/grpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0cmodels.proto\x12\x04grpc\"\x14\n\x04UUID\x12\x0c\n\x04uuid\x18\x01 \x01(\x0c\"%\n\x0bTransaction\x12\x16\n\x02id\x18\x01 \x01(\x0b\x32\n.grpc.UUIDB,Z*github.com/kasaikou/walletmgr/go/conn/grpcb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'models_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/kasaikou/walletmgr/conn/grpc'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/kasaikou/walletmgr/go/conn/grpc'
   _globals['_UUID']._serialized_start=22
   _globals['_UUID']._serialized_end=42
   _globals['_TRANSACTION']._serialized_start=44

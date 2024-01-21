@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package grpc;
 
-option go_package = "github.com/kasaikou/walletmgr/conn/grpc";
+option go_package = "github.com/kasaikou/walletmgr/go/conn/grpc";
 
 message UUID {
     bytes uuid = 1;

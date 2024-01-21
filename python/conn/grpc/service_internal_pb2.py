@@ -15,14 +15,14 @@ _sym_db = _symbol_database.Default()
 import models_pb2 as models__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16service_internal.proto\x12\x04grpc\x1a\x0cmodels.proto\"\x19\n\x17ListTransactionsRequest\"H\n\x1eListTransactionsStreamResponse\x12&\n\x0btransaction\x18\x01 \x01(\x0b\x32\x11.grpc.Transaction2o\n\x12InternalAppService\x12Y\n\x10ListTransactions\x12\x1d.grpc.ListTransactionsRequest\x1a$.grpc.ListTransactionsStreamResponse0\x01\x42)Z\'github.com/kasaikou/walletmgr/conn/grpcb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16service_internal.proto\x12\x04grpc\x1a\x0cmodels.proto\"\x19\n\x17ListTransactionsRequest\"H\n\x1eListTransactionsStreamResponse\x12&\n\x0btransaction\x18\x01 \x01(\x0b\x32\x11.grpc.Transaction2o\n\x12InternalAppService\x12Y\n\x10ListTransactions\x12\x1d.grpc.ListTransactionsRequest\x1a$.grpc.ListTransactionsStreamResponse0\x01\x42,Z*github.com/kasaikou/walletmgr/go/conn/grpcb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'service_internal_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/kasaikou/walletmgr/conn/grpc'
+  _globals['DESCRIPTOR']._serialized_options = b'Z*github.com/kasaikou/walletmgr/go/conn/grpc'
   _globals['_LISTTRANSACTIONSREQUEST']._serialized_start=46
   _globals['_LISTTRANSACTIONSREQUEST']._serialized_end=71
   _globals['_LISTTRANSACTIONSSTREAMRESPONSE']._serialized_start=73

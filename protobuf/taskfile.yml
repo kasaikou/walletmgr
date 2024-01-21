@@ -1,0 +1,29 @@
+version: "3"
+vars:
+  PYTHON_SRC: ../python/conn/grpc
+  GOLANG_SRC: ../go/conn/grpc
+tasks:
+  default:
+    cmds:
+      - task: protobuf
+      - task: mypy
+  protobuf:
+    internal: true
+    cmds:
+      - mkdir -p {{ .PYTHON_SRC }}
+      - >
+        poetry run python -m grpc_tools.protoc -I protobuf --proto_path=. ./*.proto
+        --python_out={{ .PYTHON_SRC }}
+        --grpc_python_out={{ .PYTHON_SRC }}
+      - mkdir -p {{ .GOLANG_SRC }}
+      - >
+        protoc --proto_path=. ./*.proto
+        --go_out={{ .GOLANG_SRC }}
+        --go_opt=paths=source_relative
+        --go-grpc_out={{ .GOLANG_SRC }}
+        --go-grpc_opt=paths=source_relative
+  mypy:
+    internal: true
+    dir: "{{ .PYTHON_SRC }}"
+    cmds:
+      - poetry run stubgen --inspect-mode --output . --include-docstring ./*.py

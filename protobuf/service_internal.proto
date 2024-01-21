@@ -4,7 +4,7 @@ package grpc;
 
 import "models.proto";
 
-option go_package = "github.com/kasaikou/walletmgr/conn/grpc";
+option go_package = "github.com/kasaikou/walletmgr/go/conn/grpc";
 
 service InternalAppService {
     rpc ListTransactions(ListTransactionsRequest) returns (stream ListTransactionsStreamResponse);
