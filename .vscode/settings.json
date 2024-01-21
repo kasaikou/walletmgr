@@ -1,0 +1,8 @@
+{
+    "protoc": {
+        "options": [
+            "-I",
+            "${workspaceFolder}/conn/grpc/protobuf"
+        ],
+    }
+}

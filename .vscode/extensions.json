@@ -3,6 +3,7 @@
         "golang.go",
         "ms-python.python",
         "zxh404.vscode-proto3",
-        "xaver.clang-format"
+        "xaver.clang-format",
+        "ms-vscode.makefile-tools"
     ]
 }
