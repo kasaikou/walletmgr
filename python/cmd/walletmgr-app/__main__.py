@@ -2,8 +2,9 @@ import sys
 
 import gi
 
-gi.require_version("Gtk", "4.0")
-from gi.repository import GLib, Gtk
+gi.require_version("Gtk", "3.0")
+gi.require_version("GtkNodes", "0.1")
+from gi.repository import GLib, Gtk, GtkNodes
 
 class WalletManagerGUIApplication(Gtk.Application):
     def __init__(self):

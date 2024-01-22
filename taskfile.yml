@@ -9,13 +9,36 @@ includes:
   # python:
   #   taskfile: ./python
   #   dir: ./python
+env:
+  PWD:
+    sh: pwd
+  GI_TYPELIB_PATH: "{{ .PWD }}/deps/local/lib/girepository-1.0:/usr/lib/girepository-1.0"
+  LD_LIBRARY_PATH: "{{ .PWD }}/deps/.libs/"
 tasks:
   default:
     deps: [build-app-backend]
+  run-app:
+    deps: [build-app-backend, build-gtk-nodes]
+    cmds:
+      - poetry run python ./python/cmd/walletmgr-app/
   build-app-backend:
     deps: [fix-code]
     cmds:
       - go build -o ./dist/walletmgr-app-backend ./go/cmd/walletmgr-app-backend
+  build-gtk-nodes:
+    deps: [mkdir-deps]
+    dir: ./deps
+    cmds:
+      - git clone https://github.com/aluntzer/gtknodes.git -b v0.1
+      - >
+        cd gtknodes &&
+        ./autogen.sh && 
+        ./configure --prefix={{ .PWD }}/deps/local &&
+        make &&
+        sudo make install
+  mkdir-deps:
+    cmds:
+      - mkdir -p deps/local
   fix-code:
     deps: [go-mod-download, poetry-install]
     cmds:
@@ -26,4 +49,7 @@ tasks:
   poetry-install:
     cmds:
       - poetry install
-  mypy-
+  clean:
+    cmds:
+      - sudo rm -rf dist
+      - sudo rm -rf deps
