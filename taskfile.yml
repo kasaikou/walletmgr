@@ -21,13 +21,23 @@ tasks:
     deps: [build-app-backend, build-gtk-nodes]
     cmds:
       - poetry run python ./python/cmd/walletmgr-app/
+  setup:
+    deps: [mkdir-deps, go-mod-download, poetry-install]
   build-app-backend:
     deps: [fix-code]
+    sources:
+      - ./go.mod
+      - ./go.sum
+      - ./**.go
+    generates:
+      - ./dist/walletmgr-app-backend
+      - ./dist/walletmgr-app-backend.exe
     cmds:
       - go build -o ./dist/walletmgr-app-backend ./go/cmd/walletmgr-app-backend
   build-gtk-nodes:
-    deps: [mkdir-deps]
     dir: ./deps
+    status:
+      - test -d {{ .PWD }}/deps/gtknodes
     cmds:
       - git clone https://github.com/aluntzer/gtknodes.git -b v0.1
       - >

@@ -9,6 +9,11 @@ tasks:
       - task: mypy
   protobuf:
     internal: true
+    sources:
+      - ./*.proto
+    generates:
+      - "{{ .PYTHON_SRC }}/*.py"
+      - "{{ .GOLANG_SRC }}/*.go"
     cmds:
       - mkdir -p {{ .PYTHON_SRC }}
       - >
